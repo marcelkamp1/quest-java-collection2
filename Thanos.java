@@ -1,9 +1,16 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class Thanos {
+public class Thanos extends Hero implements Comparator<Thanos>{
 
-    public static void main(String[] args) {
+    public Thanos(String name, int age) {
+		super(name, age);
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
 
         List<Hero> heroes = new ArrayList<>();
         heroes.add(new Hero("Hulk", 49));
@@ -15,18 +22,37 @@ public class Thanos {
 
 
         System.out.println("\nOrder by name:");
+        Collections.sort(heroes);
         showList(heroes);
+        
+        
 
         // TODO 2: Add a Comparator and sort by age (descending)
 
-
-        System.out.println("\nOrder by age:");
+        System.out.println("$");
+        System.out.println("Order by age:");
+        Collections.sort(heroes, (h1, h2) -> h2.getAge() - (h1.getAge()));
         showList(heroes);
-    }
+        }
+    
+
+
 
     private static void showList(List<Hero> heroes) {
         for (Hero heroe : heroes) {
             System.out.println(heroe.getName() + ", " + heroe.getAge());
         }
     }
+
+	@Override
+	public int compare(Thanos arg0, Thanos arg1) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+   
+
+
+
 }
